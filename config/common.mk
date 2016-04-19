@@ -35,15 +35,7 @@ endif
 
 PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/marsh.zip
 
-ifdef CM_NIGHTLY
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmodnightly
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmod
-endif
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=7
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -77,7 +69,7 @@ endif
 
 # Copy over the changelog to the device
 PRODUCT_COPY_FILES += \
-    vendor/cm/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
+    vendor/cm/CHANGELOG.mkdn:system/etc/CHANGELOG-TEKOS.txt
 
 # Backup Tool
 ifneq ($(WITH_GMS),true)
@@ -109,14 +101,7 @@ PRODUCT_COPY_FILES += \
 
 # What is FishPond?
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/app/re.codefi.savoca.kcal-1/base.apk:/system/app/re.codefi.savoca.kcal-1/base.apk \
-    vendor/cm/prebuilt/common/app/re.codefi.savoca.kcal-1/oat/arm/base.odex:/system/app/re.codefi.savoca.kcal-1/oat/arm/base.odex \
-    vendor/cm/prebuilt/common/app/CameraNext/CameraNext.apk:/system/app/CameraNext/CameraNext.apk \
-    vendor/cm/prebuilt/common/app/CameraNext/lib/arm/libjni_mosaic_next.so:/system/app/CameraNext/lib/arm/libjni_mosaic_next.so \
-    vendor/cm/prebuilt/common/app/CameraNext/lib/arm/libjni_tinyplanet_next.so:/system/app/CameraNext/lib/arm/libjni_tinyplanet_next.so \
-    vendor/cm/prebuilt/common/app/ChromeCustomizations/ChromeCustomizations.apk:/system/app/ChromeCustomizations/ChromeCustomizations.apk \
     vendor/cm/prebuilt/common/app/FishPond/FishPond.apk:/system/app/FishPond/FishPond.apk \
-    vendor/cm/prebuilt/common/app/GalleryNext/GalleryNext.apk:/system/app/GalleryNext/GalleryNext.apk \
     vendor/cm/prebuilt/common/app/LiveLockScreen/LiveLockScreen.apk:/system/app/LiveLockScreen/LiveLockScreen.apk \
     vendor/cm/prebuilt/common/priv-app/AudioFX/AudioFX.apk:/system/priv-app/AudioFX/AudioFX.apk \
     vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/base.apk:/system/app/org.notphenom.swe.browser-1/base.apk \
@@ -183,7 +168,6 @@ PRODUCT_PACKAGES += \
     CMFileManager \
     Eleven \
     LockClock \
-    CMUpdater \
     CyanogenSetupWizard \
     CMSettingsProvider \
     ExactCalculator \
@@ -264,21 +248,20 @@ endif
 PRODUCT_VERSION = 1.1
 PRODUCT_VERSION_MAINTENANCE = 0-RC0
 
-CM_VERSION := TekOS-$(PRODUCT_VERSION)-$(PRODUCT_DEVELOPER_VERSION)-$(PRODUCT_VERSION_MAINTENANCE)
+CM_VERSION := TekOS-$(PRODUCT_VERSION)-$(PRODUCT_DEVELOPER_VERSION)-$(PRODUCT_VERSION_MAINTENANCE)-$(shell date -u +%d%m%Y)-$(CM_BUILD)
 CM_BUILDTYPE := Official
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.tekos.version=$(CM_VERSION) \
   ro.tekos.releasetype=$(CM_BUILDTYPE) \
-  ro.modversion=$(CM_VERSION) \
-  ro.cmlegal.url=https://cyngn.com/legal/privacy-policy
+  ro.modversion=$(CM_VERSION)
 
 -include vendor/cm-priv/keys/keys.mk
 
 CM_DISPLAY_VERSION := $(CM_VERSION)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.display.version=$(CM_DISPLAY_VERSION)
+  ro.tekos.display.version=$(CM_DISPLAY_VERSION)
 
 # Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
