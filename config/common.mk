@@ -246,14 +246,14 @@ ifneq ($(TARGET_BUILD_DEVELOPER),no)
 PRODUCT_DEVELOPER_VERSION = DEVELOPER
 endif
 PRODUCT_VERSION = 1.1
-PRODUCT_VERSION_MAINTENANCE = 0-RC0
+PRODUCT_VERSION_MAINTENANCE = BETA
 
-CM_VERSION := TekOS-$(PRODUCT_VERSION)-$(PRODUCT_DEVELOPER_VERSION)-$(PRODUCT_VERSION_MAINTENANCE)-$(shell date -u +%d%m%Y)-$(CM_BUILD)
+CM_VERSION := xOS-$(PRODUCT_VERSION)-$(PRODUCT_DEVELOPER_VERSION)-$(PRODUCT_VERSION_MAINTENANCE)-$(shell date -u +%d%m%Y)-$(CM_BUILD)
 CM_BUILDTYPE := Official
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.tekos.version=$(CM_VERSION) \
-  ro.tekos.releasetype=$(CM_BUILDTYPE) \
+  ro.xos.version=$(CM_VERSION) \
+  ro.xos.releasetype=$(CM_BUILDTYPE) \
   ro.modversion=$(CM_VERSION)
 
 -include vendor/cm-priv/keys/keys.mk
@@ -261,7 +261,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 CM_DISPLAY_VERSION := $(CM_VERSION)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.tekos.display.version=$(CM_DISPLAY_VERSION)
+  ro.xos.display.version=$(CM_DISPLAY_VERSION)
 
 # Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
