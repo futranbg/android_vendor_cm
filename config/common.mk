@@ -151,7 +151,7 @@ PRODUCT_PACKAGES += \
     CMFileManager \
     Eleven \
     LockClock \
-    CyanogenSetupWizard \
+    xOSWizard \
     CMSettingsProvider \
     ExactCalculator \
     LiveLockScreenService \
