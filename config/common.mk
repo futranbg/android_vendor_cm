@@ -33,8 +33,6 @@ PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/$(TARGET_BOOTAN
 endif
 endif
 
-PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/marsh.zip
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=7
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
@@ -101,7 +99,6 @@ PRODUCT_COPY_FILES += \
 
 # What is FishPond?
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/priv-app/AudioFX/AudioFX.apk:/system/priv-app/AudioFX/AudioFX.apk \
     vendor/cm/prebuilt/common/etc/init.d/91zipalign:/system/etc/init.d/91zipalign \
     vendor/cm/prebuilt/common/etc/init.d/92sqlite:/system/etc/init.d/92sqlite
 
@@ -148,7 +145,6 @@ PRODUCT_PACKAGES += \
     TekHome \
     TekUI \
     CMWallpapers \
-    CMFileManager \
     Eleven \
     LockClock \
     xOSWizard \
