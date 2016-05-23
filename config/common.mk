@@ -145,6 +145,7 @@ PRODUCT_PACKAGES += \
     TekHome \
     TekUI \
     CMWallpapers \
+    CMFileManager \
     Eleven \
     LockClock \
     xOSWizard \

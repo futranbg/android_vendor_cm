@@ -13,8 +13,8 @@ PRODUCT_PACKAGES += \
     PhotoTable \
     SoundRecorder \
     PhotoPhase \
-    Screencast
-
+    Screencast \
+    CMFileManager
 # Extra tools in CM
 PRODUCT_PACKAGES += \
     7z \
