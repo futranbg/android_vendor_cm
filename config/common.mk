@@ -50,6 +50,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.wifi-watchlist=GoogleGuest \
     ro.setupwizard.enterprise_mode=1 \
     ro.com.android.dateformat=MM-dd-yyyy \
+    ro.product.locale.language=vi \
+    ro.product.locale.region=VN \
     ro.com.android.dataroaming=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -105,6 +107,10 @@ PRODUCT_COPY_FILES += \
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
+
+# Vietnamese Virtual Assistant
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/priv-app/VAV/VirtualAssistant.apk:system/priv-app/VAV/VAV.apk
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -214,6 +220,7 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PACKAGES += \
     procmem \
     procrank \
+    busybox \
     su
 endif
 

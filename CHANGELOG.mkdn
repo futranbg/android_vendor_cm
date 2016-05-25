@@ -1,3 +1,15 @@
-TekOS
+xOS
+
+xOS 250516
+- NEW: Vietnamese Virtual Assistant added
+- NEW: Added the ability to enable or disable SU indicator
+- FIXED: Carrier Label selection
+- FIXED: Quick Gesture adding force close
+- IMPROVEMENT: Quick settings opening windows scale to actual size
+- FIXED: xOSWizard blank screen
+- IMPROVEMENT: Support for application that works depend on busybox
+- DEPRECATED: Quick pull down now temporarily down
+- FIXED: Wallpaper icon in settings
+- IMPROVEMENT: Updated strings
 =========
-TekOS 1.1 Beta
+xOS 1.0 Beta
