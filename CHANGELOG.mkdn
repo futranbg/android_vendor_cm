@@ -1,5 +1,11 @@
 xOS
 
+xOS 260516
+- NEW: CPU Info in Development Settings
+- FIXED: Facebook auto reload
+- IMPROVEMENT: Keep cellular connection even when other network is active
+- NEW: Introduce new API ported on Android N (I18N)
+
 xOS 250516
 - NEW: Vietnamese Virtual Assistant added
 - NEW: Added the ability to enable or disable SU indicator
