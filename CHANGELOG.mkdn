@@ -1,0 +1,46 @@
+xOS
+
+xOS 310516
+- IMPROVEMENT: Disable More Debugging
+- IMPROVEMENT: Properly handle null URIs.
+- IMPROVEMENT: Make 'Restrict Background Data' notification swipeable
+- FIXED: Remove duplicate assignment statement
+- IMPROVEMENT: Deadlock in PackageInstallerSession
+- IMPROVEMENT: Pass privapp specifier for selinux labeling
+- IMPROVEMENT: Speed things up!!
+- IMPROVEMENT: Rework thumbnail handling
+- FIXED: Remove unnecessary updateSurfaceScreenOn call.
+- FIXED: potential GraphRunner leak in camera effects
+- FIXED: SystemUI: Fix proguard for cardlib  when not using Jack
+- FIXED: MiniThumbFile: Fix image/bitmap retrieval
+- IMPROVEMENT: Doze: Pulse more often
+- FIXED: Avoid infinite relaunch ResolverActivity if no default home.
+- IMPROVEMENT: Speed up notification panel pulldown animation when called externally
+- IMPROVEMENT: SystemUI: Tiny expanding improvement
+- NEW: Switch LayoutLib to Java 8
+- NEW: Move LayoutLib to Java 8
+- NEW: Java 8 in layoutlib-create
+- NEW: Add option to disable auto brightness icon in brightness slider [1/2]
+- IMPROVEMENT: QS auto brightness toggle rework
+- FIXED: Make it show in notification panel
+- IMPROVEMENT: Add auto brightness toggle to Quick Settings
+
+xOS 260516
+- NEW: CPU Info in Development Settings
+- FIXED: Facebook auto reload
+- IMPROVEMENT: Keep cellular connection even when other network is active
+- NEW: Introduce new API ported on Android N (I18N)
+
+xOS 250516
+- NEW: Vietnamese Virtual Assistant added
+- NEW: Added the ability to enable or disable SU indicator
+- FIXED: Carrier Label selection
+- FIXED: Quick Gesture adding force close
+- IMPROVEMENT: Quick settings opening windows scale to actual size
+- FIXED: xOSWizard blank screen
+- IMPROVEMENT: Support for application that works depend on busybox
+- DEPRECATED: Quick pull down now temporarily down
+- FIXED: Wallpaper icon in settings
+- IMPROVEMENT: Updated strings
+=========
+xOS 1.0 Beta

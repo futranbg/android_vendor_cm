@@ -69,7 +69,7 @@ endif
 
 # Copy over the changelog to the device
 PRODUCT_COPY_FILES += \
-    vendor/cm/CHANGELOG.mkdn:system/etc/CHANGELOG-TEKOS.txt
+    vendor/cm/CHANGELOG.mkdn:system/etc/CHANGELOG-XOS.txt
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
