@@ -110,6 +110,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/priv-app/VAV/VirtualAssistant.apk:system/priv-app/VAV/VAV.apk
 
+# OTA Updater
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/priv-app/Updater/Updater.apk:system/priv-app/Updater/Updater.apk
+
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
@@ -234,7 +238,7 @@ endif
 PRODUCT_VERSION = 1.1
 PRODUCT_VERSION_MAINTENANCE = BETA
 
-CM_VERSION := xOS-$(PRODUCT_VERSION)-$(PRODUCT_DEVELOPER_VERSION)-$(PRODUCT_VERSION_MAINTENANCE)-$(shell date -u +%d%m%Y)-$(CM_BUILD)
+CM_VERSION := xOS-$(PRODUCT_VERSION)-$(PRODUCT_VERSION_MAINTENANCE)-$(shell date -u +%d%m%Y)-$(CM_BUILD)
 CM_BUILDTYPE := Official
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -248,6 +252,9 @@ CM_DISPLAY_VERSION := $(CM_VERSION)
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.xos.display.version=$(CM_DISPLAY_VERSION)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.xos.type.version=$(PRODUCT_DEVELOPER_VERSION)
 
 # Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \

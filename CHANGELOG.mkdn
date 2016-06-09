@@ -1,5 +1,10 @@
 xOS
 
+xOS 060616
+- FIXED: Memory leaked in settings
+- IMPROVEMENT: Notifications per app hiding on lockscreen
+- NEW: Now shipped with Gello
+
 xOS 310516
 - IMPROVEMENT: Disable More Debugging
 - IMPROVEMENT: Properly handle null URIs.
