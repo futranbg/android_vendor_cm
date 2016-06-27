@@ -150,7 +150,7 @@ PRODUCT_PACKAGES += \
 # Custom xOS packages
 PRODUCT_PACKAGES += \
     Launcher3 \
-    TekHome \
+    Trebuchet \
     TekUI \
     CMFileManager \
     Gallery2 \
