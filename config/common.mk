@@ -33,6 +33,8 @@ PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/$(TARGET_BOOTAN
 endif
 endif
 
+PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/marsh.zip
+
 ifdef CM_NIGHTLY
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.rommanager.developerid=cyanogenmodnightly
@@ -105,6 +107,37 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
+# What is FishPond?
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/app/re.codefi.savoca.kcal-1/base.apk:/system/app/re.codefi.savoca.kcal-1/base.apk \
+    vendor/cm/prebuilt/common/app/re.codefi.savoca.kcal-1/oat/arm/base.odex:/system/app/re.codefi.savoca.kcal-1/oat/arm/base.odex \
+    vendor/cm/prebuilt/common/app/CameraNext/CameraNext.apk:/system/app/CameraNext/CameraNext.apk \
+    vendor/cm/prebuilt/common/app/CameraNext/lib/arm/libjni_mosaic_next.so:/system/app/CameraNext/lib/arm/libjni_mosaic_next.so \
+    vendor/cm/prebuilt/common/app/CameraNext/lib/arm/libjni_tinyplanet_next.so:/system/app/CameraNext/lib/arm/libjni_tinyplanet_next.so \
+    vendor/cm/prebuilt/common/app/ChromeCustomizations/ChromeCustomizations.apk:/system/app/ChromeCustomizations/ChromeCustomizations.apk \
+    vendor/cm/prebuilt/common/app/FishPond/FishPond.apk:/system/app/FishPond/FishPond.apk \
+    vendor/cm/prebuilt/common/app/GalleryNext/GalleryNext.apk:/system/app/GalleryNext/GalleryNext.apk \
+    vendor/cm/prebuilt/common/app/LiveLockScreen/LiveLockScreen.apk:/system/app/LiveLockScreen/LiveLockScreen.apk \
+    vendor/cm/prebuilt/common/priv-app/AudioFX/AudioFX.apk:/system/priv-app/AudioFX/AudioFX.apk \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/base.apk:/system/app/org.notphenom.swe.browser-1/base.apk \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/oat/arm/base.odex:/system/app/org.notphenom.swe.browser-1/oat/arm/base.odex \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libc++_shared.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libc++_shared.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libgiga_client.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libgiga_client.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libsta.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libsta.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libswenetxt_plugin.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libswenetxt_plugin.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libicui18n.cr.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libicui18n.cr.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libicuuc.cr.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libicuuc.cr.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libswe.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libswe.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libsweadrenoext_22_plugin.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libsweadrenoext_22_plugin.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libsweadrenoext_23_plugin.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libsweadrenoext_23_plugin.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libsweadrenoext_plugin.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libsweadrenoext_plugin.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libswecore.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libswecore.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libsweskia.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libsweskia.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libswev8.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libswev8.so \
+    vendor/cm/prebuilt/common/app/org.notphenom.swe.browser-1/lib/arm/libswewebrefiner.so:/system/app/org.notphenom.swe.browser-1/lib/arm/libswewebrefiner.so \
+    vendor/cm/prebuilt/common/etc/init.d/91zipalign:/system/etc/init.d/91zipalign \
+    vendor/cm/prebuilt/common/etc/init.d/92sqlite:/system/etc/init.d/92sqlite
+
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
@@ -123,6 +156,9 @@ PRODUCT_COPY_FILES += \
 
 # Theme engine
 include vendor/cm/config/themes_common.mk
+
+# CMSDK
+include vendor/cm/config/cmsdk_common.mk
 
 # Required CM packages
 PRODUCT_PACKAGES += \
@@ -143,7 +179,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Launcher3 \
     Trebuchet \
-    AudioFX \
     CMWallpapers \
     CMFileManager \
     Eleven \
@@ -151,18 +186,13 @@ PRODUCT_PACKAGES += \
     CMUpdater \
     CyanogenSetupWizard \
     CMSettingsProvider \
-    ExactCalculator
+    ExactCalculator \
+    LiveLockScreenService \
+    WeatherProvider
 
-# CM Platform Library
+# Exchange support
 PRODUCT_PACKAGES += \
-    org.cyanogenmod.platform-res \
-    org.cyanogenmod.platform \
-    org.cyanogenmod.platform.xml
-
-# CM Hardware Abstraction Framework
-PRODUCT_PACKAGES += \
-    org.cyanogenmod.hardware \
-    org.cyanogenmod.hardware.xml
+    Exchange2
 
 # Extra tools in CM
 PRODUCT_PACKAGES += \
@@ -225,77 +255,21 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.root_access=0
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/cm/overlay/common
 
-PRODUCT_VERSION_MAJOR = 13
-PRODUCT_VERSION_MINOR = 0
+# Determine whether this build is a Developer version or Release version
+ifneq ($(TARGET_BUILD_DEVELOPER),no)
+PRODUCT_DEVELOPER_VERSION = DEVELOPER
+endif
+PRODUCT_VERSION = 1.1
 PRODUCT_VERSION_MAINTENANCE = 0-RC0
 
-# Set CM_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
-
-ifndef CM_BUILDTYPE
-    ifdef RELEASE_TYPE
-        # Starting with "CM_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^CM_||g')
-        CM_BUILDTYPE := $(RELEASE_TYPE)
-    endif
-endif
-
-# Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(CM_BUILDTYPE)),)
-    CM_BUILDTYPE :=
-endif
-
-ifdef CM_BUILDTYPE
-    ifneq ($(CM_BUILDTYPE), SNAPSHOT)
-        ifdef CM_EXTRAVERSION
-            # Force build type to EXPERIMENTAL
-            CM_BUILDTYPE := EXPERIMENTAL
-            # Remove leading dash from CM_EXTRAVERSION
-            CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to CM_EXTRAVERSION
-            CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
-        endif
-    else
-        ifndef CM_EXTRAVERSION
-            # Force build type to EXPERIMENTAL, SNAPSHOT mandates a tag
-            CM_BUILDTYPE := EXPERIMENTAL
-        else
-            # Remove leading dash from CM_EXTRAVERSION
-            CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to CM_EXTRAVERSION
-            CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
-        endif
-    endif
-else
-    # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
-    CM_BUILDTYPE := UNOFFICIAL
-    CM_EXTRAVERSION :=
-endif
-
-ifeq ($(CM_BUILDTYPE), UNOFFICIAL)
-    ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-        CM_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
-    endif
-endif
-
-ifeq ($(CM_BUILDTYPE), RELEASE)
-    ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-        CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)
-    else
-        ifeq ($(TARGET_BUILD_VARIANT),user)
-            CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(CM_BUILD)
-        else
-            CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)
-        endif
-    endif
-else
-    CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
-endif
+CM_VERSION := TekOS-$(PRODUCT_VERSION)-$(PRODUCT_DEVELOPER_VERSION)-$(PRODUCT_VERSION_MAINTENANCE)
+CM_BUILDTYPE := Official
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.version=$(CM_VERSION) \
-  ro.cm.releasetype=$(CM_BUILDTYPE) \
+  ro.tekos.version=$(CM_VERSION) \
+  ro.tekos.releasetype=$(CM_BUILDTYPE) \
   ro.modversion=$(CM_VERSION) \
   ro.cmlegal.url=https://cyngn.com/legal/privacy-policy
 
@@ -303,55 +277,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 CM_DISPLAY_VERSION := $(CM_VERSION)
 
-ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),)
-ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
-  ifneq ($(CM_BUILDTYPE), UNOFFICIAL)
-    ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-      ifneq ($(CM_EXTRAVERSION),)
-        # Remove leading dash from CM_EXTRAVERSION
-        CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
-        TARGET_VENDOR_RELEASE_BUILD_ID := $(CM_EXTRAVERSION)
-      else
-        TARGET_VENDOR_RELEASE_BUILD_ID := $(shell date -u +%Y%m%d)
-      endif
-    else
-      TARGET_VENDOR_RELEASE_BUILD_ID := $(TARGET_VENDOR_RELEASE_BUILD_ID)
-    endif
-    CM_DISPLAY_VERSION=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)
-  endif
-endif
-endif
-
-# by default, do not update the recovery with system updates
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
-
-ifndef CM_PLATFORM_SDK_VERSION
-  # This is the canonical definition of the SDK version, which defines
-  # the set of APIs and functionality available in the platform.  It
-  # is a single integer that increases monotonically as updates to
-  # the SDK are released.  It should only be incremented when the APIs for
-  # the new release are frozen (so that developers don't write apps against
-  # intermediate builds).
-  CM_PLATFORM_SDK_VERSION := 4
-endif
-
-ifndef CM_PLATFORM_REV
-  # For internal SDK revisions that are hotfixed/patched
-  # Reset after each CM_PLATFORM_SDK_VERSION release
-  # If you are doing a release and this is NOT 0, you are almost certainly doing it wrong
-  CM_PLATFORM_REV := 0
-endif
-
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.display.version=$(CM_DISPLAY_VERSION)
 
-# CyanogenMod Platform SDK Version
+# Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.build.version.plat.sdk=$(CM_PLATFORM_SDK_VERSION)
+    ro.config.notification_sound=Tethys.ogg \
+    ro.config.alarm_alert=Oxygen.ogg \
+    ro.config.ringtone=Titania.ogg
 
-# CyanogenMod Platform Internal
+# Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.build.version.plat.rev=$(CM_PLATFORM_REV)
+    persist.sys.strictmode.disable=true \
+    ro.config.nocheckin=1
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 

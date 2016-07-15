@@ -1,0 +1,43 @@
+#!/system/xbin/bash
+LOG_FILE=/data/zipalign.log
+ZIPALIGNDB=/data/zipalign.db
+SYSTEM=$(mount|grep "/system "|awk '{ print $1 }')
+function mountrw {
+  mount | grep "/system " | grep rw >/dev/null || mount -o remount,rw $SYSTEM /system
+}
+function mountro {
+  mount | grep "/system " | grep ro >/dev/null || mount -o remount,ro $SYSTEM /system
+}
+
+[ -e $LOG_FILE ] && rm $LOG_FILE
+[ -f $ZIPALIGNDB ] || touch $ZIPALIGNDB
+
+echo "Starting FV Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE
+
+for DIR in /system/app /data/app /data/app-private ; do
+  cd $DIR
+  for APK in *.apk ; do
+    if [ $APK -ot $ZIPALIGNDB ] && [ $(grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ] ; then
+      echo "Already checked: $DIR/$APK" | tee -a $LOG_FILE
+    else
+      zipalign -c 4 $APK
+      if [ $? -eq 0 ] ; then
+        echo "Already aligned: $DIR/$APK" | tee -a $LOG_FILE
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      else
+        echo "Now aligning: $DIR/$APK" | tee -a $LOG_FILE
+        zipalign -f 4 $APK /cache/$APK
+        mountrw
+        cp -f -p /cache/$APK $APK
+        rm -f /cache/$APK
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      fi
+    fi
+  done
+done
+
+mountro
+
+touch $ZIPALIGNDB
+
+echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE

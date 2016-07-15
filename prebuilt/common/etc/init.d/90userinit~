@@ -1,0 +1,17 @@
+#!/system/bin/sh
+# call userinit.sh if present in /data/local
+
+if [ -e /data/local/userinit.sh ];
+then
+   log -p i -t userinit "Executing /data/local/userinit.sh";
+   /system/bin/sh /data/local/userinit.sh;
+   setprop cm.userinit.active 1;
+fi;
+
+echo "256 256 256" > /sys/devices/platform/kcal_ctrl.0/kcal
+echo 263 > /sys/devices/platform/kcal_ctrl.0/kcal_cont
+echo 0 > /sys/devices/platform/kcal_ctrl.0/kcal_hue
+echo 0 > /sys/devices/platform/kcal_ctrl.0/kcal_invert
+echo 35 > /sys/devices/platform/kcal_ctrl.0/kcal_min
+echo 275 > /sys/devices/platform/kcal_ctrl.0/kcal_sat
+echo 263 > /sys/devices/platform/kcal_ctrl.0/kcal_val
